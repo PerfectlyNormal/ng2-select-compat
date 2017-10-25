@@ -350,6 +350,9 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   public inputEvent(e:any, isUpMode:boolean = false):void {
     // tab
     if (e.keyCode === 9) {
+      if (this.active.indexOf(this.activeOption) === -1) {
+        this.selectActiveMatch();
+      }
       return;
     }
     if (isUpMode && (e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 38 ||
